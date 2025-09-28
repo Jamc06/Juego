@@ -13,4 +13,9 @@ public abstract class Jugador extends Personaje {
         if (gano) System.out.println(nombre + ": He triunfado...");
         else System.out.println(nombre + ": He caído en batalla...");
     }
+    public void recibirDanio(int cantidad) {
+    this.vida -= cantidad;
+    if (this.vida < 0) this.vida = 0;
+}
+
 }

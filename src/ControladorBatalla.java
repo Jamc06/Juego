@@ -49,9 +49,9 @@ public class ControladorBatalla {
         }
     }
 
-    // === MÉTODO PRINCIPAL ===
+    //  MÉTODO PRINCIPAL DE LA BATALLA  // 
     public void iniciarBatalla() {
-        System.out.println("=== ¡Comienza la batalla 3v3! ===");
+        System.out.println(" ¡Comienza la batalla 3v3! ");
         for (Personaje p : jugadores) p.mensajeInicio();
         for (Personaje p : enemigos) p.mensajeInicio();
 
@@ -81,7 +81,7 @@ public class ControladorBatalla {
         else System.out.println("Los enemigos han ganado...");
     }
 
-    // === ESTADO Y TURNOS ===
+    //  ESTADO Y TURNOS 
     private boolean hayJugadoresVivos() {
         return jugadores.stream().anyMatch(Personaje::estaVivo);
     }
@@ -101,7 +101,7 @@ public class ControladorBatalla {
         System.out.println("----------------------");
     }
 
-    // === TURNOS ===
+    //  TURNOS
     private void turnoJugador(Jugador j) {
         System.out.println("\nTurno de " + j.getNombre());
         System.out.println("1. Atacar");
@@ -117,7 +117,7 @@ public class ControladorBatalla {
                 usarPocionJugador(j);
                 break;
             case 3:
-                j.recibirDanio(j.getVida()); // HP 0
+                j.recibirDanio(j.getVida()); // HP 
                 registrarEventoTurno(j.getNombre() + " se retira del combate");
                 break;
         }
@@ -133,12 +133,12 @@ public class ControladorBatalla {
             if (tienePocionVida) {
                 usarPocionEnemigo(e);
             } else {
-                habilidadEspecial(e);
+                habilidadEspecial(e,jugadores);
             }
         }
     }
 
-    // === ACCIONES ===
+    //  ACCIONES 
     private void atacar(Personaje atacante, List<? extends Personaje> objetivos) {
         List<Personaje> vivos = objetivos.stream()
                 .filter(Personaje::estaVivo)
@@ -209,7 +209,7 @@ public class ControladorBatalla {
     private void usarPocionEnemigo(Enemigo e) {
         List<Item> items = inventarioEnemigos.get(e);
         if (items.isEmpty()) {
-            habilidadEspecial(e);
+            habilidadEspecial(e,jugadores);
             return;
         }
 
@@ -233,10 +233,15 @@ public class ControladorBatalla {
         }
     }
 
-    private void habilidadEspecial(Enemigo e) {
-        // placeholder habilidad especial
-        registrarEventoTurno(e.getNombre() + " usa su habilidad especial (placeholder)");
+    private void habilidadEspecial(Enemigo e, List<Jugador> jugadores) {
+    int danio = 10; 
+
+    for (Jugador j : jugadores) {
+        j.recibirDanio(danio); 
+        registrarEventoTurno(e.getNombre() + " usa su habilidad especial y hace "
+                        + danio + " de daño a " + j.getNombre());
     }
+}
 
     private void limpiarMuertos() {
         for (Personaje p : jugadores) {
@@ -247,7 +252,7 @@ public class ControladorBatalla {
         }
     }
 
-    // === VENENO ===
+    //  VENENO 
     private void aplicarVeneno() {
         for (Jugador j : jugadores) {
             if (j.estaVivo() && j.isEnvenenado()) {
@@ -270,13 +275,13 @@ public class ControladorBatalla {
         }
     }
 
-    // === REGISTROS ===
+    //  REGISTROS 
     private void registrarEventoTurno(String texto) {
         eventosTurno.add(texto);
     }
 
     private void finTurno() {
-        System.out.println("\n=== Eventos del turno ===");
+        System.out.println("\n Eventos del turno ");
         for (String ev : eventosTurno) {
             System.out.println(ev);
             registroAcciones.add(ev);

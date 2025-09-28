@@ -26,7 +26,7 @@ public abstract class Personaje {
     public int getVida() { return vida; }
     public int getAtaque() { return ataque; }
 
-    // Nuevo: veneno
+  
     public void envenenar() {
         envenenado = true;
     }

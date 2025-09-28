@@ -5,8 +5,8 @@ public class PocionQuitarEfectos extends Item {
 
     @Override
     public void aplicar(Personaje objetivo) {
-        // Ahora sí quita veneno real
-        objetivo.curarVeneno(); // método nuevo en Personaje
+        
+        objetivo.curarVeneno(); // Elimina el efecto de veneno
         System.out.println(nombre + " usada en " + objetivo.getNombre() +
                            " → Se han eliminado los efectos negativos (veneno)");
     }

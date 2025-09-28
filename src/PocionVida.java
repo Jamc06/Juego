@@ -12,7 +12,7 @@ public class PocionVida extends Item {
         objetivo.recibirDanio(-cantidad); // truco: daño negativo = curar
         System.out.println(
             nombre + " usada en " + objetivo.getNombre() +
-            " → HP: " + vidaAntes + " → " + objetivo.getVida()
+            " → VIDA: " + vidaAntes + " → " + objetivo.getVida()
         );
     }
 }

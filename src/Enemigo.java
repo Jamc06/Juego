@@ -8,12 +8,12 @@ public abstract class Enemigo extends Personaje {
 
     @Override
     public void mensajeInicio() {
-        System.out.println(nombre + ": ¡Te derrotaré!");
+        System.out.println(nombre + ": TUU CAERAS!");
     }
 
     @Override
     public void mensajeFinal(boolean gano) {
-        if (gano) System.out.println(nombre + ": ¡He vencido!");
+        if (gano) System.out.println(nombre + ": ¡ JAJA He vencido!");
         else System.out.println(nombre + ": He sido derrotado...");
     }
 }

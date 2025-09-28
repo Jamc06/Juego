@@ -12,7 +12,7 @@ public class PocionDamage extends Item {
         objetivo.recibirDanio(cantidad);
         System.out.println(
             nombre + " lanzada a " + objetivo.getNombre() +
-            " → HP: " + vidaAntes + " → " + objetivo.getVida()
+            " → VIDA: " + vidaAntes + " → " + objetivo.getVida()
         );
     }
 }

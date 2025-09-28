@@ -10,6 +10,6 @@ public abstract class Item {
     public String getNombre() { return nombre; }
     public String getDescripcion() { return descripcion; }
 
-    // Método abstracto: cada ítem decide qué hace al aplicarse
+    // cada ítem decide qué hace al aplicarse
     public abstract void aplicar(Personaje objetivo);
 }
