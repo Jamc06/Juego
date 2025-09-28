@@ -5,7 +5,7 @@ public abstract class Personaje {
     protected int vidaMax;
 
 
-    // Nuevo: estado envenenado
+    
     protected boolean envenenado = false;
 
     public Personaje(String nombre, int vida, int ataque) {
@@ -47,7 +47,7 @@ public abstract class Personaje {
 
     @Override
     public String toString() {
-        return nombre + " [HP: " + vida + ", ATK: " + ataque + 
+        return nombre + " [VIDA: " + vida + ", ATAQUE: " + ataque + 
                (envenenado ? ", VENENO" : "") + "]";
     }
 }
